@@ -63,5 +63,25 @@ public class LDE {
             nActual = nActual.getSiguiente();  // Avanza al siguiente nodo en la lista.
         }
     }
+    /**
+     * Elimina el último nodo de la lista.
+     * 
+     * @return true si el nodo fue eliminado correctamente, false si no se pudo eliminar.
+     */
+    public boolean removeLast() {
+        if (size() == 1) {  // Si la lista tiene solo un nodo
+            Inicial = null;  // Elimina el primer (y único) nodo, dejando la lista vacía.
+            Final = null;  // También se debe actualizar el puntero 'Final'.
+            tam = 0;  // Se actualiza el tamaño de la lista.
+            return true;  // Se eliminó el nodo correctamente.
+        } else if (size() > 1) {  // Si la lista tiene más de un nodo
+            Final = Final.getAnterior();  // El nodo anterior al último nodo pasa a ser el último.
+            Final.setSiguiente(null);  // El nuevo último nodo apunta a null.
+            tam--;  // Se decrementa el tamaño de la lista.
+            return true;  // El nodo fue eliminado correctamente.
+        } else {
+            return false;  // Si la lista está vacía, no se puede eliminar un nodo.
+        }
+    }
 
 }
