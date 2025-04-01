@@ -32,5 +32,25 @@ public class LDE {
     public int size() { 
         return tam;  // Retorna el valor de 'tam', que representa la cantidad de elementos en la lista.
     }
+ /**
+     * Añade un nodo al inicio de la lista.
+     * 
+     * @param nN El nodo a ser añadido al principio de la lista.
+     * @return true si el nodo fue añadido correctamente, false en caso de algún error.
+     */
+    public boolean addFirst(Nodo nN) {
+        if (this.isEmpty()) {  // Si la lista está vacía (Inicial es null)
+            Inicial = nN;  // El nodo se convierte en el primer nodo de la lista.
+            Final = nN;  // Como la lista tiene un solo nodo, 'Final' también apunta al mismo nodo.
+            tam++;  // Se incrementa el tamaño de la lista.
+            return true;  // El nodo fue añadido correctamente.
+        } else {
+            nN.setSiguiente(Inicial);  // El nuevo nodo apunta al antiguo primer nodo.
+            Inicial.setAnterior(nN);  // El antiguo primer nodo apunta atrás al nuevo nodo.
+            Inicial = nN;  // El nuevo nodo es el primero de la lista.
+            tam++;  // Se incrementa el tamaño de la lista.
+            return true;  // El nodo fue añadido correctamente.
+        }
+    }
 
 }
