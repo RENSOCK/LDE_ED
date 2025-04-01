@@ -52,5 +52,16 @@ public class LDE {
             return true;  // El nodo fue añadido correctamente.
         }
     }
+  /**
+     * Imprime la lista en la consola de forma legible.
+     * Se imprime cada valor de los nodos separados por " <--> ".
+     */
+    public void imprimirListaConsola() {
+        Nodo nActual = Inicial;  // Inicia desde el primer nodo.
+        while (nActual != null) {  // Mientras no se llegue al final de la lista (nActual sea null)
+            System.out.print(nActual.getValor() + "<-->");
+            nActual = nActual.getSiguiente();  // Avanza al siguiente nodo en la lista.
+        }
+    }
 
 }
