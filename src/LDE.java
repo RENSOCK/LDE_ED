@@ -83,5 +83,24 @@ public class LDE {
             return false;  // Si la lista está vacía, no se puede eliminar un nodo.
         }
     }
-
+/**
+     * Añade un nodo al final de la lista.
+     * 
+     * @param nN El nodo que se desea agregar al final de la lista.
+     * @return true si el nodo fue añadido correctamente, false en caso contrario.
+     */
+    public boolean addLast(Nodo nN) {
+        if (this.isEmpty()) {  // Si la lista está vacía
+            Inicial = nN;  // El nodo se convierte en el primer nodo de la lista.
+            Final = nN;  // 'Final' también apunta al mismo nodo.
+            tam++;  // Se incrementa el tamaño de la lista.
+            return true;  // El nodo fue añadido correctamente.
+        } else {  // Si la lista no está vacía
+            nN.setAnterior(Final);  // El nuevo nodo apunta al antiguo último nodo.
+            Final.setSiguiente(nN);  // El antiguo último nodo apunta al nuevo nodo.
+            Final = nN;  // El nuevo nodo es el último de la lista.
+            tam++;  // Se incrementa el tamaño de la lista.
+            return true;  // El nodo fue añadido correctamente.
+        }
+    }
 }
