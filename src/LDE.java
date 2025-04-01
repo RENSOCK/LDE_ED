@@ -122,5 +122,42 @@ public class LDE {
         tam--;  // Decrementa el tamaño de la lista.
         return true;  // El primer nodo fue eliminado correctamente.
     }
+/**
+     * Verifica si un valor existe en la lista.
+     * 
+     * @param valor El valor que se busca en la lista.
+     * @return true si el valor se encuentra en la lista, false en caso contrario.
+     */
+    public boolean contains(int valor) {
+        Nodo nActual = Inicial;  // Empieza desde el primer nodo.
+        while (nActual != null) {  // Se recorre la lista buscando el valor.
+            if (nActual.getValor() == valor) {  // Si encontramos el valor en el nodo actual
+                return true;  // El valor está presente en la lista.
+            }
+            nActual = nActual.getSiguiente();  // Avanzamos al siguiente nodo.
+        }
+        return false;  // El valor no se encuentra en la lista.
+    }
+    /**
+     * Elimina todos los nodos de la lista, dejándola vacía.
+     */
+    public void clear() {
+        Inicial = null;  // Se desvincula la lista desde el primer nodo.
+        Final = null;  // También se desvincula el último nodo.
+        tam = 0;  // Se resetea el tamaño de la lista.
+    }
 
+    @Override
+    public String toString() {
+        Nodo nActual = Inicial;
+        String resultado = "";
+
+        while (nActual != null) {
+            resultado += nActual.getValor() + (nActual.getSiguiente() != null ? " <--> " : "");
+            nActual = nActual.getSiguiente();
+        }
+
+        return resultado.isEmpty() ? "La lista está vacía." : resultado;
+    }
 }
+
