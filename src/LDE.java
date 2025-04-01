@@ -103,4 +103,24 @@ public class LDE {
             return true;  // El nodo fue añadido correctamente.
         }
     }
+    /**
+     * Elimina el primer nodo de la lista.
+     * 
+     * @return true si el primer nodo fue eliminado correctamente, false si la lista está vacía.
+     */
+    public boolean removeFirst() {
+        if (this.isEmpty()) {  // Si la lista está vacía
+            return false;  // No se puede eliminar un nodo de una lista vacía.
+        }
+        Nodo nodoAEliminar = Inicial;  // Se guarda el primer nodo en una variable auxiliar.
+        Inicial = Inicial.getSiguiente();  // El primer nodo se elimina al hacer que 'Inicial' apunte al siguiente nodo.
+        if (Inicial != null) {
+            Inicial.setAnterior(null);  // El nuevo primer nodo no debe tener un nodo anterior.
+        } else {
+            Final = null;  // Si la lista queda vacía, 'Final' también debe ser null.
+        }
+        tam--;  // Decrementa el tamaño de la lista.
+        return true;  // El primer nodo fue eliminado correctamente.
+    }
+
 }
